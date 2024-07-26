@@ -90,8 +90,9 @@ jobs:
           push: ${{ github.ref == 'refs/heads/main' }}
           provenance: true
           tags: >
-            ${{ env.REGISTRY }}/${{ github.repository_owner }}/base:${{ github.sha }},
-            ${{ env.REGISTRY }}/${{ github.repository_owner }}/base:latest
+            ${{ needs.setup.outputs.base_image_path }}:${{ github.sha }},
+            ${{ needs.setup.outputs.base_image_path }}:${{ needs.setup.outputs.short_hash }},
+            ${{ needs.setup.outputs.base_image_path }}:latest
           build-args: |
             BASE_IMAGE=${{ env.RUNTIME_BASE_IMAGE }}
 
