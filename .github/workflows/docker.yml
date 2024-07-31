@@ -168,7 +168,7 @@ jobs:
             ${{ needs.setup.outputs.builder_image_path }}:latest
           build-args: |
             BASE_IMAGE=${{ needs.setup.outputs.base_image_path }}
-            BUILDER_BASE_IMAGE=${{ env.BUILDER_BASE_IMAGE }}
+            RUNTIME_BASE_IMAGE=${{ env.RUNTIME_BASE_IMAGE }}
             FILES=${{ env.FILES }}
             BINARY_PATH=${{ env.FILES }}
             EXPOSED_PORT=8082
